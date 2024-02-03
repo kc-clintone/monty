@@ -1,35 +1,35 @@
 #include "monty.h"
 /**
- * node_stack - Makes a node stack for tye node.
- * @stack_ptr: A pointer to the top and the bottom stack.
- * Return: Returns: EXIT_SUCCESS, upon success.
+ * free_stack_fn - This funtion frees the list.
+ * @h: The pointer to next node.
+ * Return: Nada
 */
-int node_stack(stack_t **stack_ptr)
+void free_stack_fn(stack_t *h)
 {
-stack_t *ptr;
+stack_t *node = h;
 
-ptr = malloc(sizeof(stack_t));
-if (ptr == NULL)
-stderr_malloc();
-ptr->n = STACK;
-ptr->prev = NULL;
-ptr->next = NULL;
-
-*stack_ptr = ptr;
-return (EXIT_SUCCESS);
+if (h == NULL)
+return;
+while (h != NULL)
+{
+node = h;
+h = h->next;
+free(node);
+}
 }
 /**
- * sq - Goes throught the opcode to check it is STACK or QUEUE.
- * @stk: A pointer to the top and bottom stack.
- * Return: Returns the value of Stack or Queue
- */
-int sq(stack_t *stk)
+ * free_list_fn - This function frees the getline list or something.
+ * @ptr: A pointer to array of strings.
+ * Return: Nada
+*/
+void free_list_fn(char *ptr[])
 {
-int _val = 2;
+int index = 0;
 
-if (stack->n == STACK)
-return (STACK);
-else if (stack->n == QUEUE)
-return (QUEUE);
-return (_val);
+while (ptr[index] != NULL)
+{
+free(ptr[index]);
+index++;
 }
+}
+
