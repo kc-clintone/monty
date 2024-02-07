@@ -47,6 +47,31 @@ target++;
 return (0);
 }
 /**
+ * char_finder - This function finds nonnumbers and
+ * some number combinations.
+ * @target: The target string.
+ * @len: The line number.
+ * Return: 1.
+*/
+int char_finder(char *target, int len)
+{
+int index = 1;
+
+while (target[index])
+{
+if (target[index] == '\0' || target[index] == '\n')
+break;
+if ((target[index] >= '0' && target[index] <= '9') || target[index] ==>
+index++;
+else
+{
+fprintf(stderr, "L%d: usage: push integer\n", len);
+exit(EXIT_FAILURE);
+}
+}
+return (1);
+}
+/**
  * put_n - This function pushes an integer.
  * @props: Properties.
  * @len: The line number.
@@ -84,28 +109,4 @@ props++;
 }
 return (0);
 }
-/**
- * char_finder - This function finds nonnumbers and
- * some number combinations.
- * @target: The target string.
- * @len: The line number.
- * Return: 1.
-*/
-int char_finder(char *target, int len)
-{
-int index = 1;
 
-while (target[index])
-{
-if (target[index] == '\0' || target[index] == '\n')
-break;
-if ((target[index] >= '0' && target[index] <= '9') || target[index] == ' ')
-index++;
-else
-{
-fprintf(stderr, "L%d: usage: push integer\n", len);
-exit(EXIT_FAILURE);
-}
-}
-return (1);
-}
