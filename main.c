@@ -35,18 +35,18 @@ return (0);
  * run - This function executes the opcode.
  * @str_props: File properties.
  * @stack: This is the list.
- * Return: void.
+ * Return: Nada.
 */
 void run(char *str_props[], stack_t *stack)
 {
 int len, x, index;
 
 instruction_t st[] = {
-{"pall", pall},
-{"pint", pint},
+{"verbose", verbose},
+{"put_n", put_n},
 {"add", add},
-{"swap", swap},
-{"pop", pop},
+{"swapper", swapper},
+{"rm", rm},
 {"null", NULL}
 };
 for (len = 1, x = 0; str_props[x + 1]; x++, len++)
